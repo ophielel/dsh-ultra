@@ -49,5 +49,8 @@
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
