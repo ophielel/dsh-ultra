@@ -1,5 +1,8 @@
 # dsh-ultra
 
+[![npm version](https://img.shields.io/npm/v/dsh-ultra.svg)](https://www.npmjs.com/package/dsh-ultra)
+[![license](https://img.shields.io/npm/l/dsh-ultra.svg)](LICENSE)
+
 > DeepSeek Harness 的 **Ultra 模式**。思想与提示词移植自 Claude Code 2.1.309 的 `ultracode`，机制按 DSH 重写：
 > 不靠隐藏参数，而是 **Agent 预设 + 多智能体编排协议 + reasoningEffort 覆盖 + 按需编排手册**。
 
@@ -25,32 +28,30 @@
 
 ## 安装
 
-### 方式一：Agent 预设（推荐）
+从 npm 安装（推荐）：
+
+```bash
+cd ~/.dsh/profiles/<profile>
+pnpm add dsh-ultra        # 或 npm install dsh-ultra
+```
+
+然后把 `node_modules/dsh-ultra/preset/cordis.patch.yml` 的内容追加到该 profile 的
+`cordis.patch.yml` 末尾，等热加载或重启 DSH。设置 → **Agent 预设** → **自定义** → **Ultra 模式**。
+
+也可以从源码安装：
 
 ```bash
 git clone https://github.com/ophielel/dsh-ultra.git ~/.dsh/plugins/dsh-ultra
 ```
 
-1. 在 `~/.dsh/profiles/<profile>/package.json` 的 `dependencies` 里加：
-
-   ```json
-   "dsh-ultra": "file:../../plugins/dsh-ultra"
-   ```
-
-2. 在 profile 目录执行 `pnpm install`（或把仓库目录 junction/软链到 `node_modules/dsh-ultra`）。
-
-3. 把 [`preset/cordis.patch.yml`](preset/cordis.patch.yml) 的内容追加到
-   `~/.dsh/profiles/<profile>/cordis.patch.yml` 末尾。
-
-4. profile patch 会热加载；没有出现卡片时重启 DeepSeek Harness。
-
-5. 设置 → **Agent 预设** → **自定义** → **Ultra 模式** → 设为新任务默认，或新建任务时选择它。
+并在 profile 的 `dependencies` 里加 `"dsh-ultra": "file:../../plugins/dsh-ultra"`，执行 `pnpm install`，
+其余步骤相同（改用仓库里的 `preset/cordis.patch.yml`）。
 
 > 预设只影响之后创建的任务；已有任务保持原预设。
 
 ### 方式二：插件 + `/ultra`
 
-同样先 clone 并加依赖，然后把仓库根目录的 [`cordis.patch.yml`](cordis.patch.yml) 追加到 profile patch：
+同样安装包，然后把仓库/npm 包根目录的 `cordis.patch.yml` 追加到 profile patch：
 
 ```yaml
 - insert:

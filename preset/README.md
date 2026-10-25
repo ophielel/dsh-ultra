@@ -14,10 +14,9 @@
 
 完整步骤见仓库根目录 [README](../README.md)。要点：
 
-1. 仓库 clone 到 `~/.dsh/plugins/dsh-ultra`；
-2. profile `dependencies` 加 `"dsh-ultra": "file:../../plugins/dsh-ultra"`，`pnpm install`；
-3. 把本目录 `cordis.patch.yml` 的内容追加到 `~/.dsh/profiles/<profile>/cordis.patch.yml`；
-4. 重启或等 profile patch 热加载；
-5. 设置 → Agent 预设 → 自定义 → **Ultra 模式**。
+1. 在 profile 目录执行 `pnpm add dsh-ultra`（或 clone 到 `~/.dsh/plugins/dsh-ultra` 并在 `dependencies` 写 `file:` 路径）；
+2. 把本目录 `cordis.patch.yml`（npm 安装后位于 `node_modules/dsh-ultra/preset/cordis.patch.yml`）的内容追加到 `~/.dsh/profiles/<profile>/cordis.patch.yml`；
+3. 重启或等 profile patch 热加载；
+4. 设置 → Agent 预设 → 自定义 → **Ultra 模式**。
 
 不要同时安装根目录的插件行：两者都会注册 `ultra`，造成重复。
