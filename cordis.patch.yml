@@ -1,0 +1,5 @@
+- insert:
+    - id: ultra
+      name: dsh-ultra
+      config:
+        reasoningEffort: max

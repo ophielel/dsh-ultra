@@ -1,0 +1,53 @@
+{
+  "name": "dsh-ultra",
+  "version": "1.0.0",
+  "description": "Ultra mode for DeepSeek Harness: standing multi-agent orchestration and max reasoning effort. A DSH port of Claude Code's ultracode.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "prompts",
+    "preset",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/ultra.test.mjs",
+    "check": "node --check index.js && node --check client.js"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "ultracode",
+    "multi-agent",
+    "workflow",
+    "agent-preset",
+    "reasoning-effort"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ophielel/dsh-ultra.git"
+  },
+  "homepage": "https://github.com/ophielel/dsh-ultra",
+  "dsh": {
+    "id": "dsh-ultra",
+    "name": "Ultra",
+    "version": "1.0.0",
+    "permissions": "系统提示词注入, 推理档位覆盖, 客户端状态徽标",
+    "client": {
+      "platform": "web",
+      "immediately": true
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "dsh-ultra-preset",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent preset 'Ultra 模式' for DeepSeek Harness: standard toolset plus standing multi-agent orchestration and max reasoning effort.",
+  "dependencies": {
+    "dsh-ultra": "file:.."
+  },
+  "dsh": {
+    "id": "dsh-ultra-preset",
+    "name": "Ultra 模式",
+    "version": "1.0.0",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  }
+}
